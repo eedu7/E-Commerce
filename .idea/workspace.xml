@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264e9d2a-db67-4566-9fec-d0ca839e69bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/repositories/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/repositories/language.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/database/mixins/userstamp.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/database/mixins/userstamp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719667324999</updated>
-      <workItem from="1719667334533" duration="7814000" />
+      <workItem from="1719667334533" duration="8306000" />
     </task>
     <servers />
   </component>
