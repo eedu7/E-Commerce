@@ -8,6 +8,9 @@ class UserController(BaseController[User]):
         super().__init__(model=User, repository=user_repository)
         self.user_repository = user_repository
 
+    async def get_by_uuid(self, uuid: str) -> User:
+        return await self.user_repository.get_by_uuid(uuid)
+
     async def get_by_username(self, username: str) -> User:
         return await self.user_repository.get_by_username(username)
 
