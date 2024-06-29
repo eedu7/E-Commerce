@@ -12,7 +12,7 @@ class UserStampMixin:
         return mapped_column(
             UUID(as_uuid=True),
             ForeignKey('users.uuid'),
-            nullable=False
+            nullable=True
         )
 
     @declared_attr
@@ -20,7 +20,7 @@ class UserStampMixin:
         return mapped_column(
             UUID(as_uuid=True),
             ForeignKey('users.uuid'),
-            nullable=False
+            nullable=True
         )
 
     @declared_attr
@@ -28,7 +28,7 @@ class UserStampMixin:
         return mapped_column(
             UUID(as_uuid=True),
             ForeignKey('users.uuid'),
-            nullable=False
+            nullable=True
         )
 
     @declared_attr
@@ -36,5 +36,5 @@ class UserStampMixin:
         return mapped_column(
             UUID(as_uuid=True),
             ForeignKey('users.uuid'),
-            nullable=False
+            nullable=True
         )
