@@ -10,7 +10,7 @@ class LanguageRepository(BaseRepository[Language]):
     """
 
     async def get_by_uuid(
-            self, uuid: UUID, join_: set[str] | None = None
+        self, uuid: UUID, join_: set[str] | None = None
     ) -> Language | None:
         """
         Get language by uuid.
@@ -28,7 +28,7 @@ class LanguageRepository(BaseRepository[Language]):
         return await self._one_or_none(query)
 
     async def get_by_code(
-            self, code: str, join_: set[str] | None = None
+        self, code: str, join_: set[str] | None = None
     ) -> Language | None:
         """
         Get language by code.
@@ -46,7 +46,7 @@ class LanguageRepository(BaseRepository[Language]):
         return await self._one_or_none(query)
 
     async def get_by_name(
-            self, name: str, join_: set[str] | None = None
+        self, name: str, join_: set[str] | None = None
     ) -> Language | None:
         """
         Get language by name.

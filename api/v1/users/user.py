@@ -13,8 +13,7 @@ user_router = APIRouter()
 
 @user_router.get("/", dependencies=[Depends(AuthenticationRequired)])
 async def get_users(
-        user_controller: UserController = Depends(
-            Factory().get_user_controller),
+    user_controller: UserController = Depends(Factory().get_user_controller),
 ) -> list[UserResponse]:
     users = await user_controller.get_all()
 
@@ -23,9 +22,8 @@ async def get_users(
 
 @user_router.post("/", status_code=201)
 async def register_user(
-        register_user_request: RegisterUserRequest,
-        auth_controller: AuthController = Depends(
-            Factory().get_auth_controller),
+    register_user_request: RegisterUserRequest,
+    auth_controller: AuthController = Depends(Factory().get_auth_controller),
 ) -> User:
     return await auth_controller.register(
         email=register_user_request.email,
@@ -36,9 +34,8 @@ async def register_user(
 
 @user_router.post("/login")
 async def login_user(
-        login_user_request: LoginUserRequest,
-        auth_controller: AuthController = Depends(
-            Factory().get_auth_controller),
+    login_user_request: LoginUserRequest,
+    auth_controller: AuthController = Depends(Factory().get_auth_controller),
 ) -> Token:
     return await auth_controller.login(
         email=login_user_request.email, password=login_user_request.password
@@ -47,6 +44,6 @@ async def login_user(
 
 @user_router.get("/me", dependencies=[Depends(AuthenticationRequired)])
 def get_user(
-        user: User = Depends(get_current_user),
+    user: User = Depends(get_current_user),
 ) -> UserResponse:
     return user

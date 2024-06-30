@@ -17,8 +17,7 @@ class BaseController(Generic[ModelType]):
         self.model_class = model
         self.repository = repository
 
-    async def get_by_id(self, id_: int,
-                        join_: set[str] | None = None) -> ModelType:
+    async def get_by_id(self, id_: int, join_: set[str] | None = None) -> ModelType:
         """
         Returns the model instance matching the id.
 
@@ -37,8 +36,7 @@ class BaseController(Generic[ModelType]):
 
         return db_obj
 
-    async def get_by_uuid(self, uuid: UUID,
-                          join_: set[str] | None = None) -> ModelType:
+    async def get_by_uuid(self, uuid: UUID, join_: set[str] | None = None) -> ModelType:
         """
         Returns the model instance matching the uuid.
 
@@ -57,8 +55,7 @@ class BaseController(Generic[ModelType]):
         return db_obj
 
     async def get_all(
-            self, skip: int = 0, limit: int = 100,
-            join_: set[str] | None = None
+        self, skip: int = 0, limit: int = 100, join_: set[str] | None = None
     ) -> list[ModelType]:
         """
         Returns a list of records based on pagination params.
@@ -96,7 +93,7 @@ class BaseController(Generic[ModelType]):
 
     @staticmethod
     async def extract_attributes_from_schema(
-            schema: BaseModel, excludes: set = None
+        schema: BaseModel, excludes: set = None
     ) -> dict[str, Any]:
         """
         Extracts the attributes from the schema.

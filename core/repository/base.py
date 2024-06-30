@@ -31,8 +31,7 @@ class BaseRepository(Generic[ModelType]):
         return model
 
     async def get_all(
-            self, skip: int = 0, limit: int = 100,
-            join_: set[str] | None = None
+        self, skip: int = 0, limit: int = 100, join_: set[str] | None = None
     ) -> list[ModelType]:
         """
         Returns a list of model instances.
@@ -51,11 +50,11 @@ class BaseRepository(Generic[ModelType]):
         return await self._all(query)
 
     async def get_by(
-            self,
-            field: str,
-            value: Any,
-            join_: set[str] | None = None,
-            unique: bool = False,
+        self,
+        field: str,
+        value: Any,
+        join_: set[str] | None = None,
+        unique: bool = False,
     ) -> ModelType:
         """
         Returns the model instance matching the field and value.
@@ -85,9 +84,9 @@ class BaseRepository(Generic[ModelType]):
         self.session.delete(model)
 
     def _query(
-            self,
-            join_: set[str] | None = None,
-            order_: dict | None = None,
+        self,
+        join_: set[str] | None = None,
+        order_: dict | None = None,
     ) -> Select:
         """
         Returns a callable that can be used to query the model.
@@ -148,17 +147,16 @@ class BaseRepository(Generic[ModelType]):
         :param query: The query to execute.
         """
         query = query.subquery()
-        query = await self.session.scalars(
-            select(func.count()).select_from(query))
+        query = await self.session.scalars(select(func.count()).select_from(query))
         return query.one()
 
     async def _sort_by(
-            self,
-            query: Select,
-            sort_by: str,
-            order: str | None = "asc",
-            model: Type[ModelType] | None = None,
-            case_insensitive: bool = False,
+        self,
+        query: Select,
+        sort_by: str,
+        order: str | None = "asc",
+        model: Type[ModelType] | None = None,
+        case_insensitive: bool = False,
     ) -> Select:
         """
         Returns the query sorted by the given column.
@@ -195,8 +193,7 @@ class BaseRepository(Generic[ModelType]):
         """
         return query.where(getattr(self.model_class, field) == value)
 
-    def _maybe_join(self, query: Select,
-                    join_: set[str] | None = None) -> Select:
+    def _maybe_join(self, query: Select, join_: set[str] | None = None) -> Select:
         """
         Returns the query with the given joins.
 
@@ -212,8 +209,7 @@ class BaseRepository(Generic[ModelType]):
 
         return reduce(self._add_join_to_query, join_, query)
 
-    def _maybe_ordered(self, query: Select,
-                       order_: dict | None = None) -> Select:
+    def _maybe_ordered(self, query: Select, order_: dict | None = None) -> Select:
         """
         Returns the query ordered by the given column.
 
@@ -224,12 +220,10 @@ class BaseRepository(Generic[ModelType]):
         if order_:
             if order_["asc"]:
                 for order in order_["asc"]:
-                    query = query.order_by(
-                        getattr(self.model_class, order).asc())
+                    query = query.order_by(getattr(self.model_class, order).asc())
             else:
                 for order in order_["desc"]:
-                    query = query.order_by(
-                        getattr(self.model_class, order).desc())
+                    query = query.order_by(getattr(self.model_class, order).desc())
 
         return query
 

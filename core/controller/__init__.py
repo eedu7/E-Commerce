@@ -1,3 +1,3 @@
 from .base import BaseController
 
-__all__ = ['BaseController']
+__all__ = ["BaseController"]

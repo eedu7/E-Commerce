@@ -9,9 +9,9 @@ load_dotenv(".env")
 
 
 class EnvironmentType(str, enum.Enum):
-    DEVELOPMENT = 'development'
-    PRODUCTION = 'production'
-    TEST = 'test'
+    DEVELOPMENT = "development"
+    PRODUCTION = "production"
+    TEST = "test"
 
 
 class BaseConfig(BaseSettings):
@@ -23,7 +23,7 @@ class Config(BaseConfig):
     DEBUG: int = 0
     DEFAULT_LOCAL: str = "en_US"
     ENVIRONMENT: str = EnvironmentType.DEVELOPMENT
-    POSTGRES_URL: str | None = os.getenv('POSTGRES_URL')
+    POSTGRES_URL: str | None = os.getenv("POSTGRES_URL")
     RELEASE_VERSION: str = "0.1"
     SHOW_SQL_ALCHEMY_QUERIES: int = 0
     JWT_SECRET_KEY: str | None = os.getenv("JWT_SECRET_KEY")

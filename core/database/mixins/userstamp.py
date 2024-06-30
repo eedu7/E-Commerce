@@ -10,31 +10,23 @@ class UserStampMixin:
     @declared_attr
     def created_by(cls):
         return mapped_column(
-            UUID(as_uuid=True),
-            ForeignKey('users.uuid'),
-            nullable=True
+            UUID(as_uuid=True), ForeignKey("users.uuid"), nullable=True
         )
 
     @declared_attr
     def updated_by(cls):
         return mapped_column(
-            UUID(as_uuid=True),
-            ForeignKey('users.uuid'),
-            nullable=True
+            UUID(as_uuid=True), ForeignKey("users.uuid"), nullable=True
         )
 
     @declared_attr
     def activated_by(cls):
         return mapped_column(
-            UUID(as_uuid=True),
-            ForeignKey('users.uuid'),
-            nullable=True
+            UUID(as_uuid=True), ForeignKey("users.uuid"), nullable=True
         )
 
     @declared_attr
     def deleted_by(cls):
         return mapped_column(
-            UUID(as_uuid=True),
-            ForeignKey('users.uuid'),
-            nullable=True
+            UUID(as_uuid=True), ForeignKey("users.uuid"), nullable=True
         )

@@ -9,10 +9,11 @@ from core.database.mixins import TimestampMixin, UserStampMixin
 
 
 class Language(Base, TimestampMixin, UserStampMixin):
-    __tablename__ = 'languages'
+    __tablename__ = "languages"
 
-    uuid: Mapped[UUID] = mapped_column(UUID(as_uuid=True), primary_key=True,
-                                       default=lambda: uuid4())
+    uuid: Mapped[UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=lambda: uuid4()
+    )
     code: Mapped[str] = mapped_column(String, nullable=False)
     name: Mapped[str] = mapped_column(String, nullable=True)
     native_name: Mapped[str] = mapped_column(String, nullable=True)

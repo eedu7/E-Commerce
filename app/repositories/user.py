@@ -10,7 +10,7 @@ class UserRepository(BaseRepository[User]):
     """
 
     async def get_by_uuid(
-            self, uuid: UUID, join_: set[str] | None = None
+        self, uuid: UUID, join_: set[str] | None = None
     ) -> User | None:
         """
         Get user by uuid.
@@ -28,7 +28,7 @@ class UserRepository(BaseRepository[User]):
         return await self._one_or_none(query)
 
     async def get_by_username(
-            self, username: str, join_: set[str] | None = None
+        self, username: str, join_: set[str] | None = None
     ) -> User | None:
         """
         Get user by username.
@@ -46,7 +46,7 @@ class UserRepository(BaseRepository[User]):
         return await self._one_or_none(query)
 
     async def get_by_email(
-            self, email: str, join_: set[str] | None = None
+        self, email: str, join_: set[str] | None = None
     ) -> User | None:
         """
         Get user by email.

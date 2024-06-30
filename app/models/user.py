@@ -24,16 +24,14 @@ class User(Base, TimestampMixin, UserStampMixin):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(BigInteger, default=lambda: rang())
-    uuid: Mapped[UUID] = mapped_column(UUID(as_uuid=True),
-                                       primary_key=True,
-                                       unique=True,
-                                       default=uuid4())
+    uuid: Mapped[UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, unique=True, default=uuid4()
+    )
     username: Mapped[str] = mapped_column(String, nullable=False, unique=True)
     email: Mapped[str] = mapped_column(String, nullable=False, unique=True)
-    preferred_language: Mapped[UUID] = mapped_column(UUID(as_uuid=True),
-                                                     ForeignKey(
-                                                         "languages.uuid"),
-                                                     nullable=True)
+    preferred_language: Mapped[UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("languages.uuid"), nullable=True
+    )
 
     __mapper_args__ = {"eager_defaults": True}
 

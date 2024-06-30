@@ -1,3 +1,3 @@
 from .jwt import JWTHandler
 
-__all__ = ['JWTHandler']
+__all__ = ["JWTHandler"]
