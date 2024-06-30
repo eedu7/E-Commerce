@@ -6,7 +6,7 @@ from app.controllers import AuthController, UserController
 from app.models import User
 from app.schemas.extras.token import Token
 from app.schemas.requests import LoginUserRequest, RegisterUserRequest
-from app.schemas.responses.users import UserResponse
+from app.schemas.responses import UserResponse
 from core.factory import Factory
 from core.fastapi.dependencies import AuthenticationRequired
 from core.fastapi.dependencies.current_user import get_current_user
