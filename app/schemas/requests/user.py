@@ -4,6 +4,7 @@ import re
 
 from pydantic import BaseModel, EmailStr, constr, field_validator
 
+
 class RegisterUserRequest(BaseModel):
     email: EmailStr
     password: constr(min_length=8, max_length=64)
